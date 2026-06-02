@@ -20,7 +20,7 @@ input_data = pd.DataFrame({
     "rating": [rating],
     "city_Delhi": [1 if city == "Delhi" else 0],
     "city_Mumbai": [1 if city == "Mumbai" else 0],
-    "service_X-Ray": [1 if service == "X-ray" else 0],   # ✅ FIXED HERE
+    "service_X-Ray": [1 if service == "X-Ray" else 0],
     "service_MRI": [1 if service == "MRI" else 0],
     "service_Blood Test": [1 if service == "Blood Test" else 0]
 })
@@ -40,7 +40,7 @@ actual_price = st.number_input(
 )
 
 if actual_price > 0:
-    fairness_score = predicted_price / actual_price
+    fairness_score = actual_price / predicted_price
     if fairness_score > 1.2:
         st.error("Overpriced")
     elif fairness_score < 0.8:
